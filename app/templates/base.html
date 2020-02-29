@@ -6,14 +6,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/base-style.css') }}">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap&subset=cyrillic" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="../assets/libs/fontawesome/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/libs/fontawesome/css/all.min.css') }}">
 	<script src="../assets/js/change-theme.js"></script>
 
 <body>
 	<header class="header">
 		<div class="container">
 			<div class="header-inner">
-				<a href="#"class="logo"><img src="{{ url_for('static', filename='assests/images/logo.jpg')}}" alt="" class="logo-img"></a>
+				<a href="#"class="logo"><img src="{{ url_for('static', filename='assets/images/logo.jpg')}}" alt="" class="logo-img"></a>
 				<div class="nav">
 					<a href="#" class="nav__item">Головна</a>
 					<a href="#" class="nav__item">Тест</a>
