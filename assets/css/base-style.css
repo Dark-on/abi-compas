@@ -20,7 +20,7 @@ a{
 	text-decoration: none;
 }
 ::selection{
-	background-color: #70C6B9
+	background-color: #70C6B9;
 	color:#fff;
 }
 .container{
@@ -34,8 +34,6 @@ a{
 	background-color: #ebf2ff;
 	position: relative;
 	z-index: 1000;
-
-
 }
 .header-inner{
 	display: flex;
