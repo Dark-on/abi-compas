@@ -13,6 +13,6 @@ window.onload = function (){
 		butt2.classList.add("active");
 		butt1.classList.remove("active");
 		document.body.style.filter = "invert(.9) hue-rotate(180deg)";
-		for (let i = 0; i < arrImg.length; i++) arrImg[i].style.filter = "invert(.9) hue-rotate(180deg)";
+		//for (let i = 0; i < arrImg.length; i++) arrImg[i].style.filter = "invert(1) hue-rotate(180deg)";
 	}
 }
