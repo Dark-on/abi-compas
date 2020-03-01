@@ -5,6 +5,15 @@
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.timer{
+	font-size: 100px;
+	font-weight: bold;
 }
 /* CHOICE-BLOCK */
 .choice-block{
