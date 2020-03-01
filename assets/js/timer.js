@@ -15,7 +15,7 @@ window.onload = function(){
 
 		if(diff <= 0 ){
 			clearInterval();
-			timer.innerHTML = "Пізда настала"; 
+			timer.innerHTML = "ЗНО розпочалось"; 
 		}
 
 	}
