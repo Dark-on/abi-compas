@@ -1,7 +1,7 @@
 "use strict";
-let deadline = new Date("May 21, 2020 00:00:00").getTime();
-window.onload = function(){
-	function customizeTimer(){
+let deadline = new Date("April 17, 2020 00:00:00").getTime();
+window.addEventListener('load', function(){
+		function customizeTimer(){
 		let now = new Date().getTime();
 		let diff = deadline - now;
 
@@ -10,15 +10,28 @@ window.onload = function(){
 		let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
 		let seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
+		if(hours < 10) hours = "0" + hours; 
+		if(minutes < 10) minutes = "0" + minutes; 
+		if(seconds < 10) seconds = "0" + seconds; 
+
 		let timer = document.getElementById('timer')
-		timer.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+		switch(days){
+			case 1:
+				timer.innerHTML = `${days} day ${hours}:${minutes}:${seconds}`;
+				break;
+			case 0:
+				timer.innerHTML = `${hours}:${minutes}:${seconds}`;
+				break;
+			default:
+				timer.innerHTML = `${days} days ${hours}:${minutes}:${seconds}`;
+		}
 
 		if(diff <= 0 ){
 			clearInterval();
-			timer.innerHTML = "ЗНО розпочалось"; 
+			timer.innerHTML = "Пора здавати проект"; 
 		}
 
 	}
 	customizeTimer();
 	setInterval(customizeTimer, 1000);
-}
+}, false);
