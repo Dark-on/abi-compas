@@ -1,0 +1,26 @@
+::-webkit-scrollbar-track{
+	background-color: black;
+}
+::-webkit-scrollbar-thumb{
+	background-color:#70C6B9;
+	border: 3px solid black;
+}
+/* HEADER */
+.header{
+	filter: invert(.9) hue-rotate(180deg);
+}
+.logo{
+	filter: invert(1) hue-rotate(180deg);
+
+}
+/* FOOTER */
+.footer{
+	filter: invert(.9) hue-rotate(180deg);
+}
+/* CONTENT */
+.content{
+	background-color: black;
+}
+.links-block{
+	filter: invert(.9) hue-rotate(180deg);
+}

@@ -11,10 +11,10 @@ def index():
     return render_template('index.html')
 
 
-@application.route('/spec-test')
-def spec_test():
+@application.route('/abi-test')
+def abi_test():
 
-    return render_template('spec-test.html')
+    return render_template('abi-test.html')
 
 
 @application.route('/filter-universities')
