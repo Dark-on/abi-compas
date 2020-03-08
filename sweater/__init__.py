@@ -6,4 +6,6 @@ This is an inizializator of this package (app) """
 from flask import Flask
 
 # object of the application created
-app = Flask(__name__)
+app = Flask("abicompass")
+
+from sweater import routes, models
