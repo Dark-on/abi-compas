@@ -1,4 +1,4 @@
-""" This file containes URI routes 
+""" This file containes URI routes
 connected with functions and content """
 
 from flask import render_template
