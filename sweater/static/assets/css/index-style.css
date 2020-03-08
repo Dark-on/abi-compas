@@ -1,0 +1,94 @@
+/* INTRO */
+.intro{
+	height: 90vh;
+	background-image: url(../images/intro-img4.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.timer{
+	font-size: 100px;
+	font-weight: bold;
+}
+/* CHOICE-BLOCK */
+.choice-block{
+	margin: 15px 0;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-column-gap: 15px;
+}
+.choice-block-img{
+	width: 100%;
+	max-width: 100%;
+	height: 100%;
+}
+.choice-block__item{
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+.choice-btn{
+	text-decoration: none;
+	outline: none;
+	display: inline-block;
+	color: white;
+	width: 70%;
+	padding: 10px 30px;
+	margin-top: 15px;
+	border-radius: 10px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	background-image: linear-gradient(to right, #9EEFE1 0%, #4830F0 51%, #9EEFE1 100%);
+	background-size: 200% auto;
+	box-shadow: 0 0 20px rgba(0,0,0,.1);
+	transition: .5s;
+}
+.choice-btn:hover {background-position: right center;}
+/* LINKS-BLOCK */
+.links-block-title{
+	text-align: center;
+}
+.links-block-list {
+	counter-reset: li; 
+	list-style: none; 
+	font: 14px "Trebuchet MS", "Lucida Sans";
+	padding: 0;
+	text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+.links-block-list a {
+	position: relative;
+	display: block;
+	padding: .4em .4em .4em 2em;
+	margin: .5em 0;
+	background: #DAD2CA;
+	color: #444;
+	text-decoration: none;
+	border-radius: .3em;
+	transition: .3s ease-out;
+}
+.links-block-list a:hover {background: #E9E4E0;}
+.links-block-list a:hover:before {transform: rotate(360deg);}
+.links-block-list a:before {
+	content: counter(li);
+	counter-increment: li;
+	position: absolute;
+	left: -1.3em;
+	top: 50%;
+	margin-top: -1.3em;
+	background: #70C6B9;;
+	height: 2em;
+	width: 2em;
+	line-height: 1.5em;
+	border: .3em solid white;
+	text-align: center;
+	font-weight: bold;
+	border-radius: 2em;
+	transition: all .3s ease-out;
+}

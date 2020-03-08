@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/index-style.css') }}">
+<script src="{{ url_for('static', filename='assets/js/timer.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="content">
+	<div class="intro">
+		<h1 >Цей сайт допоможе вам остаточно заплутатись у своєму житті</h1>
+		<h2>До здачі проекту залишилось:</h2>
+		<div class="timer" id="timer"></div>
+	</div>
+	<div class="container">
+		<div class="choice-block">
+			<div class="choice-block__item">
+				<img src="{{ url_for('static', filename='assets/images/test-img.jpeg') }}" alt="" class="choice-block-img">
+				<a href="" class="choice-btn">Пройти тест</a>
+			</div>
+			<div class="choice-block__item">
+				<img src="{{ url_for('static', filename='assets/images/universities-img.jpg') }}" alt="" class="choice-block-img">
+				<a href="" class="choice-btn">Перейти до списку вузів</a>
+			</div>
+		</div>
+		<div class="links-block">
+			<h2 class="links-block-title">Корисні посилання</h2>
+			<ol class="links-block-list">
+				<li><a href="#">Элемент списка</a></li>
+				<li><a href="#">Элемент списка</a></li>
+				<li><a href="#">Элемент списка</a></li>
+				<li><a href="#">Элемент списка</a></li>
+				<li><a href="#">Элемент списка</a></li>
+			</ol>
+		</div>
+	</div>
+</div>
+{% endblock %}
