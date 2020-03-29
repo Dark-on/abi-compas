@@ -1,64 +1,78 @@
-import requests
 import json
+import pprint
+
+import requests
 from bs4 import BeautifulSoup
 
 
 def get_html(url):
-    html = requests.get(url)
-    html.encoding = "utf-8"
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:45.0) Gecko/20100101 Firefox/45.0'
+      }
+    html = requests.get(url, headers=headers)
+    html.encoding = 'utf-8'
+
     return html.text
 
 
-def get_vnzs(link):
+def get_cities(html):
+    cities_soup = BeautifulSoup(html, features='lxml')
+    cities_tags = cities_soup.find('div', class_='image-region-select-block')\
+        .find('select', class_='region-select').find_all('option')
+    cities_tags.pop(0)
+
+    cities = {tag.text: tag.get('value') for tag in cities_tags}
+
+    return cities
+
+
+
+def get_universities_in_city(link):
     html = get_html(link)
-    vnz_links = list()
-    vnz_names = list()
-    vnz_soup = BeautifulSoup(html, features="html.parser")
-    #vnz_vip_tags = vnz_soup.find("div", {"class": "section-search-result"})\
-    #    .find("ul", {"class": "section-search-result-vip-list"}).find_all("a", {"class": "search-result-item"})
-    vnz_tags = vnz_soup.find("div", {"class": "section-search-result"}) \
-        .find("ul", {"class": "section-search-result-list"}).find_all("a", {"class": "search-result-item"})
+    vnz_soup = BeautifulSoup(html, features='lxml')
+    #vnz_vip_tags = vnz_soup.find('div', {'class': 'section-search-result'})\
+    #    .find('ul', {'class': 'section-search-result-vip-list'}).find_all('a', {'class': 'search-result-item'})
+    vnz_tags = vnz_soup.find('div', class_='section-search-result') \
+        .find('ul', class_='section-search-result-list').find_all('a', class_='search-result-item')
+    
+    vnzs = {tag.text: tag.get('href') for tag in vnz_tags}
 
-    for tag in vnz_tags:
-        vnz_links.append(tag.get("href"))
-        vnz_names.append(tag.text)
+    return vnzs
 
-    return vnz_names, vnz_links
+
+def get_universities(cities):
+    # not for long time
+    vstup_main_url = 'https://vstup.osvita.ua/'
+    universities = {citie_name: (citie_lnk_code, get_universities_in_city(vstup_main_url + citie_lnk_code)) for citie_name, citie_lnk_code in cities.items()}
+    
+    return universities
+
+
+def get_specialities_in_university(link):
+    html = get_html(link)
+    specialities_soup = BeautifulSoup(html, features='lxml')
+
+    specialities_table_tags = specialities_soup.find('div', class_='table-of-specs') \
+        .select('div.row.nogutters.table-of-specs-item-row.qual1.base40')
+
+    specialities_tags = [tag for tag in specialities_table_tags \
+        .find('div', class_='table-of-specs-item') \
+            .find('span', class_='search') \
+                .find('b', text='Спеціальність:') \
+                    .find_next_sibling('a')]
+    
+    specs = {tag.text: tag.get('href') for tag in specialities_tags}
+
+    return specs
 
 
 def _main():
-    data_dict = dict()
-    cities = dict()
-    cities_links = list()
-    cities_names = list()
-    vnz_names_list = list()
-    vnz_links_list = list()
-
-    vstup_main_url = "https://vstup.osvita.ua/"
+    vstup_main_url = 'https://vstup.osvita.ua/'
     vstup_main_html = get_html(vstup_main_url)
 
-#   ........... GET CITIES ............
-    cities_soup = BeautifulSoup(vstup_main_html, features="html.parser")
-    cities_tags = cities_soup.find("div", {"class": "image-region-select-block"})\
-        .find("select", {"class": "region-select"}).find_all("option")
-    cities_tags.pop(0)
+    cities = get_cities(vstup_main_html)
+    universities = get_universities(cities)
+    pprint.pprint(universities['м. Київ'])
 
-    for tag in cities_tags:
-        cities_links.append(tag.get("value"))
-        cities_names.append(tag.text)
-#   ........... END GET CITIES ............
-
-    for lnk in cities_links:
-        vnz_names, vnz_links = get_vnzs(vstup_main_url + lnk)
-        vnz_names_list.append(vnz_names)
-        vnz_links_list.append(vnz_links)
-
-    data_dict = dict(zip(cities_names, vnz_names_list))
-    print(data_dict)
-    print(vnz_links_list)
-
-
-
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     _main()
