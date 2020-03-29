@@ -1,4 +1,4 @@
-""" This file containes URI routes
+""" This file contains URI routes
 connected with functions and content """
 
 from flask import render_template
@@ -16,6 +16,6 @@ def index():
 
 @app.route('/abi-test')
 def abi_test():
-    """ function for prof test of this application """
+    """ function for profession test of this application """
 
     return render_template('abi-test.html')
