@@ -43,7 +43,7 @@ def get_universities_in_city(link):
 def get_universities(cities):
     # not for long time
     vstup_main_url = 'https://vstup.osvita.ua/'
-    universities = {citie_name: (citie_lnk_code, get_universities_in_city(vstup_main_url + citie_lnk_code)) for citie_name, citie_lnk_code in cities.items()}
+    universities = {city_name: get_universities_in_city(vstup_main_url + city_lnk_code) for city_name, city_lnk_code in cities.items()}
     
     return universities
 
@@ -52,18 +52,28 @@ def get_specialities_in_university(link):
     html = get_html(link)
     specialities_soup = BeautifulSoup(html, features='lxml')
 
-    specialities_table_tags = specialities_soup.find('div', class_='table-of-specs') \
-        .select('div.row.nogutters.table-of-specs-item-row.qual1.base40')
+    specialities_table_tags = specialities_soup.find('div', class_='table-of-specs')\
+        .select('div.row.no-gutters.table-of-specs-item-row.qual1.base40')
 
-    specialities_tags = [tag for tag in specialities_table_tags \
-        .find('div', class_='table-of-specs-item') \
-            .find('span', class_='search') \
-                .find('b', text='Спеціальність:') \
-                    .find_next_sibling('a')]
-    
+    specialities_tags = [
+        tag.find('div', class_='table-of-specs-item')\
+            .find('span', class_='search')\
+                .find('b', text='Спеціальність:')\
+                    .find_next_sibling('a') for tag in specialities_table_tags
+    ]
+
     specs = {tag.text: tag.get('href') for tag in specialities_tags}
 
     return specs
+
+
+def get_specialities(universities):
+    # not for long time
+    vstup_main_url = 'https://vstup.osvita.ua/'
+    specialities = {university_name: (university_lnk_code, get_specialities_in_university(vstup_main_url + university_lnk_code)) for university_name, university_lnk_code in universities.values()}
+    
+    return specialities
+
 
 
 def _main():
@@ -72,7 +82,8 @@ def _main():
 
     cities = get_cities(vstup_main_html)
     universities = get_universities(cities)
-    pprint.pprint(universities['м. Київ'])
+    pprint.pprint(get_specialities(universities))
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     _main()

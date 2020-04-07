@@ -1,6 +1,6 @@
 """ Contains all database logic """
 
-from sweater import db
+from core import db
 
 
 class City(db.Model):

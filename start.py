@@ -1,6 +1,6 @@
 """ This is a script where application starts """
 
-from sweater import app
+from core import app
 
 
 if __name__ == "__main__":

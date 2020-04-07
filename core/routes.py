@@ -3,10 +3,10 @@ connected with functions and content """
 
 from flask import render_template
 
-from sweater import app
+from core import app
 
 
-@app.route('/index')
+@app.route('/index/')
 @app.route('/')
 def index():
     """ function for main page of this application """
@@ -14,7 +14,7 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/abi-test')
+@app.route('/abi-test/')
 def abi_test():
     """ function for profession test of this application """
 
