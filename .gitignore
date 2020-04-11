@@ -5,3 +5,4 @@ abicompass/*
 .idea
 .vscode
 manage.py
+static/admin/*
