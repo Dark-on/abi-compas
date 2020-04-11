@@ -1,0 +1,7 @@
+venv
+*.py[oc]
+__pycache__
+abicompass/*
+.idea
+.vscode
+manage.py
