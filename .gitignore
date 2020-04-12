@@ -6,3 +6,4 @@ abicompass/*
 .vscode
 manage.py
 static/admin/*
+.env
