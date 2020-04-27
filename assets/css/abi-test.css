@@ -44,16 +44,65 @@ a{
 }
 
 /* ABI-TEST */
-.abi-test-inner{
-	display: grid;
-	grid-template-columns: 1fr 1fr;
+.abi-test{
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
 }
-.abi-test__item{
-	grid-column:-1/1;
+.test-title{
+	margin: 10px;
+}
+.abi-test-inner{
+	min-width: 700px;
+	border: 3px solid #eee;
+	border-radius: 10px;
+	padding: 30px;
+
+}
+.buttons{
+	display:flex;
+	justify-content: flex-end;
+}
+.quest-title{
+	margin-top:0;	
 }
 .test-btn{
-	width: 50%;
+	color:#FFFFFF;
+	cursor:pointer;
+	padding:5px 8px;
+	font-size:16px;
+	border:solid 1px #F9F9F9;
+	background:#70C619;
+	margin: 0;
+	border-radius: 20px;
+	transition: .2s linear all;
+	opacity: .7;
 }
-.submit-btn{
-	width: 50%;	
+.test-btn:hover {
+	opacity: 1;
+}
+#submit-btn{
+	outline:none;
+	color:white;
+	cursor: pointer;
+	padding:5px 11px;
+	font-size:16px;
+	border-radius: 20px;
+	transition: .2s linear all;
+	border:none;
+	background-color:orange;
+	opacity: .7;
+}
+#submit-btn:hover{
+	opacity: 1;
+}
+.quest-title{
+	font-size: 20px;
+}
+.quest-answ{
+	font-size: 18px;
 }

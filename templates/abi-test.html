@@ -1,46 +1,54 @@
 <!DOCTYPE html>
 <html lang="uk">
+
 <head>
 	<meta charset="UTF-8">
 	<title>Test</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/abi-test.css">
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap&subset=cyrillic" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap&subset=cyrillic"
+		rel="stylesheet">
 	<script src="../assets/js/abi-test.js"></script>
 </head>
+
 <body>
 	<div class="container">
+		
 		<form action="#" method="post" class="abi-test">
+			<h1 class="test-title">Тест на вашу майбутню професію</h1>
 			<div class="abi-test-inner">
 				<div class="abi-test__item">
-					<p><b>Запитання №1</b> Якого дімопотама ви любите найбільше?</p>
-					<p><input type="radio" name="dimopotam" value="Голенький">Голенький</p>
-					<p><input type="radio" name="dimopotam" value="П*яненький">П*яненький</p>
-					<p><input type="radio" name="dimopotam" value="Миленький">Миленький</p>
-					<p><input type="radio" name="dimopotam" value="Пухнастий">Пухнастий</p>
+					<p class="quest-title"><b>Запитання №1</b> Яке ваше найбільше захоплення?</p>
+					<p class="quest-answ"><input type="radio" name="hobby" value="Малювання">Малювання</p>
+					<p class="quest-answ"><input type="radio" name="hobby" value="Спорт">Спорт</p>
+					<p class="quest-answ"><input type="radio" name="hobby" value="Музика">Музика</p>
+					<p class="quest-answ"><input type="radio" name="hobby" value="Програмування">Програмування</p>
 				</div>
 				<div class="abi-test__item">
-					<p><b>Запитання №2</b> Якого олегатора ви любите найбільше?</p>
-					<p><input type="radio" name="olegator" value="Кусючий">Кусючий</p>
-					<p><input type="radio" name="olegator" value="Кучерявенький">Кучерявенький</p>
-					<p><input type="radio" name="olegator" value="Взбударажений">Взбударажений</p>
-					<p><input type="radio" name="olegator" value="Зубастий">Зубастий</p>
+					<p class="quest-title"><b>Запитання №2</b> Як ви навчалися в школі?</p>
+					<p class="quest-answ"><input type="radio" name="rating" value="2-4">2-4</p>
+					<p class="quest-answ"><input type="radio" name="rating" value="4-7">4-7</p>
+					<p class="quest-answ"><input type="radio" name="rating" value="7-10">7-10</p>
+					<p class="quest-answ"><input type="radio" name="rating" value="10-12">10-12</p>
 				</div>
 				<div class="abi-test__item">
-					<p><b>Запитання №3</b> Яку світлану ви любите найбільше?</p>
-					<p><input type="radio" name="svitlana" value="Відважна">Відважна</p>
-					<p><input type="radio" name="svitlana" value="Математична">Математична</p>
-					<p><input type="radio" name="svitlana" value="Закохана у дімопотама">Закохана у дімопотама</p>
-					<p><input type="radio" name="svitlana" value="Намана">Намана</p>
+					<p class="quest-title"><b>Запитання №3</b> Яка професія з переліку найбільше відштовхує?</p>
+					<p class="quest-answ"><input type="radio" name="profession" value="Програміст">Програміст</p>
+					<p class="quest-answ"><input type="radio" name="profession" value="Вчитель">Вчитель</p>
+					<p class="quest-answ"><input type="radio" name="profession" value="Тренер">Тренер</p>
+					<p class="quest-answ"><input type="radio" name="profession" value="Художник">Художник</p>
 				</div>
-				<a class="test-btn" id = "prev-btn">Попереднє запитання</a>
-				<a class="test-btn" id = "next-btn">Наступне запитання</a>
-				<INPUT id = "submit-btn" type="submit" value="Відправити відповіді" class="submit-btn"/>
-			</div>	
+				<div class="buttons">
+					<a class="test-btn" id="prev-btn">Попереднє запитання</a>
+					<a class="test-btn" id="next-btn">Наступне запитання</a>
+					<INPUT id="submit-btn" type="submit" value="Відправити відповіді" class="submit-btn" />
+				</div>
+			</div>
 
 		</form>
 	</div>
 
-	
+
 </body>
+
 </html>

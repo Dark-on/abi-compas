@@ -148,6 +148,7 @@ a{
 	color:#444;
 }
 .send-button { 
+	outline:none;
 	color:#FFFFFF;
 	cursor:pointer;
 	padding:8px 11px;
