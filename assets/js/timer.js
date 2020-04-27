@@ -1,5 +1,5 @@
 "use strict";
-let deadline = new Date("April 17, 2020 00:00:00").getTime(); //set deadline
+let deadline = new Date("May 20, 2020 00:00:00").getTime(); //set deadline
 window.addEventListener('load', function(){ //browser loaded HTML and external resources
 	function customizeTimer(){
 		/* find out the current date and the difference between it and the deadline */
@@ -32,11 +32,11 @@ window.addEventListener('load', function(){ //browser loaded HTML and external r
 
 		/* if deadline has come*/
 		if(diff <= 0 ){
-			clearInterval();
+			clearInterval(tik);
 			timer.innerHTML = "Пора здавати проект"; 
 		}
 
 	}
 	customizeTimer(); //function is called immediately
-	setInterval(customizeTimer, 1000); //function is called every second
+	let tik = setInterval(customizeTimer, 1000); //function is called every second
 });

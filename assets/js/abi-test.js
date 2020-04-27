@@ -1,6 +1,4 @@
 "use strict";
-
-
 window.addEventListener('DOMContentLoaded', function () { //loaded html but no styles and so on
 	let elemIndex = 0,
 		/* get the buttons from html */

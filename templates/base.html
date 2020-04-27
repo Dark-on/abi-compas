@@ -1,40 +1,61 @@
 <!DOCTYPE html>
 <html lang="uk">
+
 <head>
 	<meta charset="UTF-8">
 	<title>Base</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/base-style.css">
 	<link rel="stylesheet" href="../assets/css/index-style.css">
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap&subset=cyrillic" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap&subset=cyrillic"
+		rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="../assets/libs/fontawesome/css/all.min.css">
 	<script src="../assets/js/change-theme.js"></script>
 	<script src="../assets/js/timer.js"></script>
+	<script src="../assets/js/slider.js"></script>
 </head>
+
 <body>
 	<header class="header">
 		<div class="container">
 			<div class="header-inner">
-				<a href="#"class="logo"><img src="../assets/images/logo.jpg" alt="" class="logo-img"></a>
+				<a href="#" class="logo"><img src="../assets/images/logo.jpg" alt="" class="logo-img"></a>
 				<div class="nav">
 					<a href="#" class="nav__item">Головна</a>
 					<a href="#" class="nav__item">Тест</a>
 					<a href="#" class="nav__item">Вузи</a>
 				</div>
 				<div class="change-theme">
-					<i class="fas fa-sun theme-icon active" id ="button-light"></i>
+					<i class="fas fa-sun theme-icon active" id="button-light"></i>
 					<div class="theme-delimiter"></div>
-					<i class="fas fa-moon theme-icon" id ="button-dark"></i>
+					<i class="fas fa-moon theme-icon" id="button-dark"></i>
 				</div>
 			</div>
 		</div>
-	</header>   
+	</header>
 	<div class="wrapper">
 		<div class="content">
 			<div class="intro">
-				<h1 >Цей сайт допоможе вам остаточно заплутатись у своєму житті</h1>
-				<h2>До здачі проекту залишилось:</h2>
-				<div class="timer" id="timer"></div>
+				<div class="intro-inner">
+					<div class="intro__item fade" id = "intr-item-1">
+						<h2>До здачі проекту залишилось:</h2>
+						<div class="timer" id="timer"></div>
+					</div>
+					<div class="intro__item fade" id = "intr-item-2">
+						<h2>Наша реклама</h2>
+					</div>
+					<div class="intro__item fade" id = "intr-item-3">
+						<h2>Інша наша реклама</h2>
+					</div>
+					<div class="intro__item fade" id = "intr-item-4">
+						<h2>Ще наша реклама</h2>
+					</div>
+					<div class="arrows">
+						<div class="arrow-prev" role="button"></div>
+						<div class="arrow-next" role="button"></div>
+					  </div>
+					  
+				</div>
 			</div>
 			<div class="container">
 				<div class="choice-block">
@@ -61,19 +82,24 @@
 
 
 		</div>
-		<footer class="footer">				
+		<footer class="footer">
 			<div class="container">
 				<div class="footer-inner">
 					<form class="contact-form" action="#" method="post" name="contact">
 						<h2 class="form-label">Зворотний зв'язок</h2>
 						<input id="name" class="form-txt" name="name" type="name" required placeholder="Ваше ім'я">
 						<input id="email" class="form-txt" name="email" type="email" required placeholder="Ваш e-mail">
-						<textarea id="msg" class="form-txtarea" name="msg" required placeholder="Ваше повідомлення:"></textarea>
-						<button class = "send-button">Відправити</button>
+						<textarea id="msg" class="form-txtarea" name="msg" required
+							placeholder="Ваше повідомлення:"></textarea>
+						<button class="send-button">Відправити</button>
 					</form>
 					<div class="about">
 						<h2 class="about-title">Про нас</h2>
-						<p class="about-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque officiis ut harum, voluptatum aliquam qui, sint, soluta ratione accusantium iusto tempora. Alias animi voluptate sit fuga amet corporis debitis nam labore quam ad velit dolorum, molestias, totam unde autem perferendis, fugiat commodi architecto excepturi facere nihil possimus maxime enim soluta ducimus? Nesciunt vitae aperiam asperiores eveniet.</p>
+						<p class="about-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque officiis
+							ut harum, voluptatum aliquam qui, sint, soluta ratione accusantium iusto tempora. Alias
+							animi voluptate sit fuga amet corporis debitis nam labore quam ad velit dolorum, molestias,
+							totam unde autem perferendis, fugiat commodi architecto excepturi facere nihil possimus
+							maxime enim soluta ducimus? Nesciunt vitae aperiam asperiores eveniet.</p>
 					</div>
 					<div class="social">
 						<a href="#"><i class="fab fa-facebook social-icon"></i></a>
@@ -89,4 +115,5 @@
 		</footer>
 	</div><!-- wrapper -->
 </body>
+
 </html>
