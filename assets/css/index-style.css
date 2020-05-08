@@ -14,7 +14,6 @@
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;	
-	
 }
 #intr-item-1{
 	background-image: url(../images/intro-1.jpg);
@@ -29,6 +28,27 @@
 	background-image: url(../images/intro-4.jpg);
 }
 /*SLIDER*/
+.dots{
+	width: 100%;
+	position: absolute;
+	bottom: 2%;
+	display: flex;
+	justify-content: center;
+}
+.dot{
+	width: 10px;
+	height: 10px;	
+	background-color: rgba(0,0,0, 0.6);
+	border-radius: 50%;
+	margin: 10px;
+	box-shadow: 0 0 0 5px rgba(0,0,0, 0.4);
+	transition: all .2s linear;
+	cursor: pointer;
+}
+
+.active{
+	background-color: rgba(236, 235, 235, 0.6);
+}
 .arrows {
 	display: flex;
 	width: 100%;;
