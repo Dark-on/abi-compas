@@ -103,6 +103,7 @@ a{
 .quest-title{
 	font-size: 20px;
 }
-.quest-answ{
+.quest-answ input, label{
 	font-size: 18px;
+	cursor: pointer;
 }
