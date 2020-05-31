@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.js"></script>
+    <script>
+        mocha.setup('bdd');
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/2.0.0/chai.js"></script>
+    <script>
+        var assert = chai.assert;
+    </script>
+</head>
+
+<body>
+
+    <script>
+        function showSlide(index) {
+            let slideIndex = index;
+
+            if (index > 3) slideIndex = 0;
+            if (index < 0) slideIndex = 3;
+
+            //Code that we use in project but not in test
+            //
+            //index = slideIndex;
+            //
+            //slides.forEach(slide => slide.style.display = "none");
+            //dots.forEach(dot => dot.classList.remove("active"));
+            //
+            //dots[index].classList.add("active");
+            //slides[index].style.display = 'flex';
+            //
+
+            //also added return for the test
+            return slideIndex;
+        }
+
+    </script>
+    <script>
+        function customizeTimer(dl) {
+
+            let deadline = dl.getTime();
+            let now = 1590963100937;
+            let diff = deadline - now;
+
+            let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+            let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+            let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+            let seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            if (hours < 10) hours = "0" + hours;
+            if (minutes < 10) minutes = "0" + minutes;
+            if (seconds < 10) seconds = "0" + seconds;
+
+
+            let timer;
+
+            switch (days) {
+                case 1:
+                    timer = `${days} day ${hours}:${minutes}:${seconds}`;
+                    break;
+                case 0:
+                    timer = `${hours}:${minutes}:${seconds}`;
+                    break;
+                default:
+                    timer = `${days} days ${hours}:${minutes}:${seconds}`;
+            }
+
+            if (diff <= 0) {
+                timer = "Пора здавати проект";
+            }
+
+            return timer;
+        }
+    </script>
+
+    <script src="test.js"></script>
+
+    <div id="mocha"></div>
+
+    <script>
+        mocha.run();
+    </script>
+</body>
+
+</html>

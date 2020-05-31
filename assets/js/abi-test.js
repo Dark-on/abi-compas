@@ -1,30 +1,63 @@
-"use strict";
-window.addEventListener('DOMContentLoaded', function () { //loaded html but no styles and so on
+/*** 
+* An event that is caused when DOM content loaded on page.
+* @author Yukhymchuk Yaroslaw
+* 
+*/
+window.addEventListener('DOMContentLoaded', function () {
+	/**
+	 * Need to explain index of element.
+	 * @type {number}
+	 */
 	let elemIndex = 0,
-		/* get the buttons from html */
-		btns = document.querySelector('.buttons'),
-		prevBut = document.getElementById('prev-btn'),
-		nextBut = document.getElementById('next-btn'),
-		submitBtn = document.getElementById('submit-btn');
-	showElem(elemIndex); // show first elem
 
-	/* calls the function and increases the element index by 1 */
+	/**
+	* Need to get buttons.
+	* @type {HTMLCollection}
+	*/
+	btns = document.querySelector('.buttons'),
+
+	/**
+	* Need to get prev btn.
+	* @type {HTMLElement}
+	*/
+	prevBut = document.getElementById('prev-btn'),
+
+	/**
+	* Need to get next btn.
+	* @type {HTMLElement}
+	*/
+	nextBut = document.getElementById('next-btn'),
+
+	/**
+	* Need to get submit button.
+	* @type {HTMLElement}
+	*/
+	submitBtn = document.getElementById('submit-btn');
+
+	/*Show first elem */
+	showElem(elemIndex); // 
+
+	/* Calls the function and increases the element index by 1 */
 	prevBut.onclick = function () {
 		showElem(elemIndex -= 1);
 	}
-	/* calls the function and decreases the element index by 1 */
+	/* Calls the function and decreases the element index by 1 */
 	nextBut.onclick = function () {
 		showElem(elemIndex += 1);
 	}
 
 	/* function that shows an element */
 	function showElem(n) {
+		/**
+		* Need to get items of test.
+		* @type {HTMLCollection}
+  		*/
 		let elements = document.querySelectorAll('.abi-test__item');
 
 		if (n < 0) elemIndex = 0;
 		if (n > elements.length - 1) elemIndex = elements.length - 1;
 
-		/* style-changing conditions */
+		/* Style-changing conditions */
 		switch (n) {
 			case 0:
 				prevBut.style.display = 'none';
@@ -43,11 +76,10 @@ window.addEventListener('DOMContentLoaded', function () { //loaded html but no s
 				btns.style.justifyContent = 'space-between';
 		}
 
-		/* display:none all elements */
-		for (let i = 0; i < elements.length; i++) {
-			elements[i].style.display = "none";
-		}
-		/* show elem with curent index */
+		/* Display:none all elements */
+		elements.forEach(element => element.style.display = "none");
+
+		/* Show elem with curent index */
 		elements[elemIndex].style.display = "block";
 	}
 });
